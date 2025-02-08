@@ -1,0 +1,211 @@
+/* Mobile and Tablet Styles */
+@media screen and (max-width: 768px) {
+
+    /* Navigation */
+    .nav-container {
+        padding: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        font-size: 1.5rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero-container1 {
+        padding: 1rem;
+    }
+
+    .glass-container {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    /* Form Grid */
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Input Groups */
+    .input-group {
+        margin-bottom: 1rem;
+    }
+
+    .input-group label {
+        font-size: 0.9rem;
+    }
+
+    .input-field {
+        padding: 0.8rem 2rem;
+    }
+
+    /* Cube Animation */
+    .scene {
+        display: none;
+        /* Hide cube on smaller screens */
+    }
+
+    /* Buttons */
+    .btn,
+    .submit-btn,
+    .new-entry-btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    /* Results Section */
+    .results-title {
+        font-size: 1.2rem;
+    }
+
+    .score-box {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    /* Adjustments for very small screens */
+    .hero-container1 {
+        padding: 0.5rem;
+    }
+
+    .glass-container {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .form-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-header p {
+        font-size: 0.9rem;
+    }
+
+    /* Input Fields */
+    .input-field {
+        font-size: 0.9rem;
+    }
+
+    /* Score Box */
+    .score-title {
+        font-size: 1rem;
+    }
+
+    .score-value {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Form Grid Adjustments */
+@media screen and (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input-group i {
+        left: 10px;
+        top: 38px;
+        font-size: 1rem;
+    }
+}
+
+/* Button Stacking */
+@media screen and (max-width: 480px) {
+    .submit-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Adjust Holographic Effects for Mobile */
+@media screen and (max-width: 768px) {
+    .holographic-effect {
+        animation: none;
+        /* Simplify animations for mobile */
+    }
+}
+
+/* Default layout for larger screens */
+.beta-release {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 20px;
+    position: relative;
+}
+
+.dot {
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+    .beta-release {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        font-size: 14px;
+    }
+
+    .dot {
+        position: absolute;
+        top: -9px;
+        /* Adjusted to place above text */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+    }
+}

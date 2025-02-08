@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle at bottom right, rgba(0, 255, 85, 0.1), transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    z-index: 2;
+}
+
+h1 {
+    text-align: center;
+    color: #a8b3cf;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+h1 span {
+    color: #00ff55;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    background: #2a2a2a;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    background: #333333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.submit-btn {
+    grid-column: 1 / -1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

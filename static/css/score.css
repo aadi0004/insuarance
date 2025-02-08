@@ -1,0 +1,115 @@
+.score-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: contents;
+}
+
+.score-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.score-value {
+    font-size: 2.5em;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ff4d4d, #f9cb28);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+#resultsSection {
+    display: none;
+    margin-top: 2rem;
+    padding: 20px;
+    background: rgb(100 73 73 / 10%);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#resultsSection.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.results-title {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-label {
+    color: #ffffff;
+}
+
+.result-value {
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.new-entry-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.new-entry-btn:hover {
+    background: #4CAF50;
+    color: #ffffff;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

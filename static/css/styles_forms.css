@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+option {
+    font-weight: normal;
+    display: block;
+    padding-block-start: 0px;
+    padding-block-end: 1px;
+    min-block-size: 1.2em;
+    padding-inline: 2px;
+    white-space: nowrap;
+    background-color: rgb(35 38 43);
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-header h1 {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.form-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+}
+
+.form-header p {
+    color: #a0a0a0;
+    font-size: 1.1em;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 40px;
+    color: #666;
+    transition: 0.3s;
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #ff4d4d;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.3);
+}
+
+.input-field:focus+i {
+    color: #ff4d4d;
+}
+
+select.input-field {
+    appearance: none;
+    cursor: pointer;
+}
+
+.submit-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, #ff4d4d, #f9cb28);
+    color: white;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 77, 77, 0.4);
+}
+
+.input-group .error {
+    color: #ff4d4d;
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Floating animation for the container */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.glass-container {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .glass-container {
+        padding: 20px;
+    }
+
+    .form-header h1 {
+        font-size: 2em;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff4d4d, #f9cb28);
+    border-radius: 4px;
+}

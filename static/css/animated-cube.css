@@ -1,0 +1,139 @@
+.scene {
+    width: 700px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 20s linear infinite;
+}
+
+.face {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.face::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+            rgba(255, 0, 128, 0.5),
+            rgba(0, 255, 255, 0.5));
+    filter: blur(20px);
+    opacity: 0.5;
+}
+
+.front {
+    transform: translateZ(100px);
+}
+
+.back {
+    transform: translateZ(-100px) rotateY(180deg);
+}
+
+.right {
+    transform: translateX(100px) rotateY(90deg);
+}
+
+.left {
+    transform: translateX(-100px) rotateY(-90deg);
+}
+
+.top {
+    transform: translateY(-100px) rotateX(90deg);
+}
+
+.bottom {
+    transform: translateY(100px) rotateX(-90deg);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.glow {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    background: radial-gradient(circle at center,
+            rgba(0, 255, 255, 0.3),
+            transparent 70%);
+    bottom: -100px;
+    filter: blur(20px);
+    animation: glow 6s ease-in-out infinite;
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+}
+
+.holographic-effect {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1) 40%,
+            rgba(255, 255, 255, 0.2) 60%,
+            transparent);
+    mix-blend-mode: screen;
+    animation: holographic 8s linear infinite;
+}
+
+@keyframes holographic {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%) rotate(45deg);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%) rotate(45deg);
+    }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Data Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/score.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animated-cube.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive_forms.css') }}">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">A1 Bank</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/">About us</a>
+                <a href="/">Policy Guide</a>
+                <a href="/">Plans</a>
+                <button class="btn btn-ghost">Sign up</button>
+                <button class="btn btn-secondary">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container1">
+            <div class="glass-container">
+                <div class="form-header">
+                    <h1>Insurance Data Form</h1>
+                    <p>Please fill in your insurance information below</p>
+                </div>
+                <form id="insuranceForm">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" class="input-field" required>
+                            <i class="fas fa-user"></i>
+                            <span class="error">Please enter a valid age</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="sex">Sex</label>
+                            <select id="sex" name="sex" class="input-field" required>
+                                <option value="">Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <i class="fas fa-venus-mars"></i>
+                            <span class="error">Please select a gender</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="bmi">BMI</label>
+                            <input type="number" id="bmi" name="bmi" class="input-field" step="0.1" required>
+                            <i class="fas fa-weight"></i>
+                            <span class="error">Please enter a valid BMI</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="children">Children</label>
+                            <input type="number" id="children" name="children" class="input-field" required>
+                            <i class="fas fa-child"></i>
+                            <span class="error">Please enter the number of children</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="smoker">Smoker</label>
+                            <select id="smoker" name="smoker" class="input-field" required>
+                                <option value="">Select option</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            <i class="fas fa-smoking"></i>
+                            <span class="error">Please select an option</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="region">Region</label>
+                            <select id="region" name="region" class="input-field" required>
+                                <option value="">Select region</option>
+                                <option value="northeast">Northeast</option>
+                                <option value="northwest">Northwest</option>
+                                <option value="southeast">Southeast</option>
+                                <option value="southwest">Southwest</option>
+                            </select>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="error">Please select a region</span>
+                        </div>
+                    </div>
+
+                    <div class="submit-container">
+                        <button type="submit" class="submit-btn">
+                            Submit Data <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Results Section -->
+                <div id="resultsSection">
+                    <h2 class="results-title">Submitted Data</h2>
+                    <div id="resultsContent"></div>
+
+                    <!-- Model Prediction Score -->
+                    <div class="score-box">
+                        <div class="score-title">Model Prediction Score</div>
+                        <div class="score-value" id="predictionScore">Waiting for Prediction...</div>
+                    </div>
+
+                    <button class="new-entry-btn" onclick="newEntry()">New Entry</button>
+                </div>
+
+            </div>
+            <div class="scene">
+                <div class="cube">
+                    <div class="face front">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face back">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face right">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face left">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face top">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face bottom">
+                        <div class="holographic-effect"></div>
+                    </div>
+                </div>
+                <div class="glow"></div>
+            </div>
+        </div>
+    </section>
+    <!--<script src="{{ url_for('static', filename='js/form_script.js') }}"></script>-->
+    <script src="{{ url_for('static', filename='js/form_score.js') }}"></script>
+</body>
+
+</html>

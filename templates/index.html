@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A1 Bank</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animated-cube.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles_responsive.css') }}">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">A1 Bank</a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/">About us</a>
+                <a href="/">Policy Guide</a>
+                <a href="/">Plans</a>
+                <button class="btn btn-ghost">Sign up</button>
+                <button class="btn btn-secondary">Login</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Secure Your Future<br>With The Best Insurance Plans</h1>
+                <p>Protect your family, assets, and future with our trusted insurance solutions. Explore customized
+                    plans for every need.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-outline">Get a Quote</button>
+                    <a href="{{ url_for('forms') }}"><button class="btn btn-primary">Explore Plans</button></a>
+                </div>
+                <div class="beta-release">
+                    <span class="dot"></span>
+                    <p>Exclusive Policies Available From June 30th, 2025</p>
+                </div>
+            </div>
+            <div class="scene">
+                <div class="cube">
+                    <div class="face front">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face back">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face right">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face left">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face top">
+                        <div class="holographic-effect"></div>
+                    </div>
+                    <div class="face bottom">
+                        <div class="holographic-effect"></div>
+                    </div>
+                </div>
+                <div class="glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="partners-container">
+            <h2>Trusted by Leading Companies & Individuals</h2>
+            <p>We partner with top insurers to bring you the best coverage.</p>
+            <div class="partner-logos">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" />
+                    </svg>
+                </div>
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 12l10 10 10-10L12 2zm0 15l-5-5h10l-5 5z" />
+                    </svg>
+                </div>
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 7L3 7v2h18V7zm0 4L3 11v2h18v-2zm0 4L3 15v2h18v-2z" />
+                    </svg>
+                </div>
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16 2v4h4l-4-4zm-2 0H6C4.9 2 4 2.9 4 4v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h-6V2z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
