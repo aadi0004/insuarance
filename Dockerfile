@@ -1,17 +1,20 @@
-# Use official Python image
+# Use Python base image
 FROM python:3.9
 
-# Set working directory
+# Set an environment variable for detecting Docker
+ENV DOCKER_ENV=1
+
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy all files into the container
-COPY . /app
+# Copy all files to the container
+COPY . .
 
-# Install required Python libraries
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose Flask port
-EXPOSE 1000
+# Expose the port Flask runs on
+EXPOSE 4000
 
-# Run Flask app
+# Run the application
 CMD ["python", "app.py"]

@@ -3,13 +3,28 @@ import pandas as pd
 import numpy as np
 import pickle
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
-conn= mysql.connector.connect(host = 'localhost' , 
-                               user = 'root' , 
-                               password = '' , 
-                               database = 'insurancedata')
+# Determine if running inside Docker
+if os.getenv("DOCKER_ENV"):
+    DB_HOST = "host.docker.internal"  # Use this in Docker
+else:
+    DB_HOST = "localhost"  # Use this when running locally
+
+DB_USER = "root"
+DB_PASSWORD = ""
+DB_NAME = "insurancedata"
+
+# MySQL connection with auto-reconnect
+def get_db_connection():
+    return mysql.connector.connect(
+        host=DB_HOST,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        database=DB_NAME
+    )
 
 @app.route('/')
 def home():
@@ -17,7 +32,7 @@ def home():
 
 @app.route('/forms')
 def forms():
-    return render_template('forms.html') 
+    return render_template('forms.html')
 
 @app.route('/submit_data', methods=['POST'])
 def submit_data():
@@ -28,36 +43,36 @@ def submit_data():
         children = request.form.get('children')
         smoker = request.form.get('smoker')
         region = request.form.get('region')
-        data=[[age, sex, bmi, children, smoker, region]]
-        
+        data = [[age, sex, bmi, children, smoker, region]]
 
-        input_=pd.DataFrame(data,columns=['age', 'sex', 'bmi', 'children', 'smoker', 'region'])
-        
-        with open("model/best_model.pkl","rb") as file:
-            pipeline=pickle.load(file)
+        input_ = pd.DataFrame(data, columns=['age', 'sex', 'bmi', 'children', 'smoker', 'region'])
+
+        with open("model/best_model.pkl", "rb") as file:
+            pipeline = pickle.load(file)
+
         print(input_)    
-        pred=pipeline.predict(input_)
+        pred = pipeline.predict(input_)
         print(pred)
-        
-        cursor=conn.cursor()
+
+        conn = get_db_connection()
+        cursor = conn.cursor()
         query = """
-            INSERT INTO insurance (age,sex,bmi,children,smoker,region,charges) 
-            VALUES (%s, %s, %s, %s, %s, %s,%s)
+            INSERT INTO insurance (age, sex, bmi, children, smoker, region, charges) 
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
-        values = (age, sex, bmi, children, smoker, region,float(pred[0]))
+        values = (age, sex, bmi, children, smoker, region, float(pred[0]))
 
         try:
             cursor.execute(query, values)
-            conn.commit()  
+            conn.commit()
             print("Data stored successfully in MySQL")
         except mysql.connector.Error as err:
             print("Error:", err)
         finally:
             cursor.close()
-            
-            
-        return jsonify({'prediction': f"${pred[0]:.2f}"})
+            conn.close()
 
+        return jsonify({'prediction': f"${pred[0]:.2f}"})
 
     except Exception as e:
         return jsonify({'error': str(e)})
