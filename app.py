@@ -33,7 +33,7 @@ def submit_data():
 
         input_=pd.DataFrame(data,columns=['age', 'sex', 'bmi', 'children', 'smoker', 'region'])
         
-        with open("insurance-ML-main/model/best_model.pkl","rb") as file:
+        with open("model/best_model.pkl","rb") as file:
             pipeline=pickle.load(file)
         print(input_)    
         pred=pipeline.predict(input_)

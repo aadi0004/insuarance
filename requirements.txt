@@ -1,6 +1,8 @@
 Flask
 gunicorn
-numpy
 pandas
+numpy
 scikit-learn
 mysql.connector
+
+pickle5

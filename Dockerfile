@@ -1,20 +1,17 @@
-# Use an official Python runtime as a parent image
+# Use official Python image
 FROM python:3.9
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copy all files into the container
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
+# Install required Python libraries
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose the port Flask runs on
-EXPOSE 4000
+# Expose Flask port
+EXPOSE 1000
 
-# Define environment variable
-ENV FLASK_APP=app.py
-
-# Run app.py when the container launches
+# Run Flask app
 CMD ["python", "app.py"]
